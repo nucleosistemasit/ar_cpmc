@@ -4,6 +4,23 @@
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
+  <script>
+    AFRAME.registerComponent('sound', {
+      init: function () {
+        
+        var sceneEl = document.querySelector('a-scene');         
+        
+        sceneEl.addEventListener('play', function () {
+          sceneEl.querySelector('a-sound').components.sound.playSound();  
+        });
+        
+        sceneEl.addEventListener('stop', function () {
+          sceneEl.querySelector('a-sound').components.sound.playSound();  
+        });
+        
+      }
+    });
+  </script>
   
   <body style="margin : 0px; overflow: hidden;">
 
@@ -23,13 +40,15 @@
       </a-assets>
 
       <a-marker type="barcode" value="3">
-        <!-- <a-entity rotation="-90 0 0" position="0 0 1.65">
+        <!-- 
+        <a-entity rotation="-90 0 0" position="0 0 1.65">
           <a-image src="#frase_1"></a-image>
-        </a-entity>         -->
+        </a-entity>
+        -->
         <a-entity id="boneco_1" gltf-model="#boneco" position="0 0 0.65" rotation="-90 0 0" sound="src: url(audio/audio.mp3); on: click" scale="2 2 2" animation-mixer ></a-entity>
       </a-marker>
 
-      <a-sound src="src: url(audio/audio.mp3)" autoplay="true" position="0 0 0"></a-sound>
+      <a-sound src="src: url(audio/audio.mp3)" autoplay="true" loop="true" on="click" volume="2" position="0 0 0"></a-sound>
 
       <audio id="audio" src="audio/audio.mp3" ></audio>
 
