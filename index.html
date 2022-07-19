@@ -14,8 +14,12 @@
           sceneEl.querySelector('a-sound').components.sound.playSound();  
         });
         
+        sceneEl.addEventListener('pause', function () {
+          sceneEl.querySelector('a-sound').components.sound.pauseSound();  
+        });
+        
         sceneEl.addEventListener('stop', function () {
-          sceneEl.querySelector('a-sound').components.sound.playSound();  
+          sceneEl.querySelector('a-sound').components.sound.stopSound();  
         });
         
       }
