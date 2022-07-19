@@ -31,11 +31,22 @@
 
       <a-sound src="src: url(audio/audio.mp3)" autoplay="true" position="0 0 0"></a-sound>
 
+      <audio id="audio" src="audio/audio.mp3" ></audio>
+
       <a-camera>
       </a-camera>
 
     </a-scene>  
 
   </body>  
+
+  <script>
+
+    function play(){
+      var audio = document.getElementById("audio");
+      audio.play();
+    }
+    
+  </script>
   
 </html>
